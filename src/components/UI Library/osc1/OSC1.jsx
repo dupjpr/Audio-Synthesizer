@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import CloseButton from "../closeButton/CloseButton";
 
 import './osc1.style.scss';
 
@@ -10,6 +11,7 @@ const OSC1 = ({ contraints }) => {
       dragConstraints={contraints}
       dragElastic={false}
     >
+      <CloseButton/>
       this is the osc 1
     </motion.div>
   );

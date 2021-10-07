@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { pushComponent, getInput } from "../actionsHome";
+import { v4 as uuidv4 } from 'uuid';
 
 import OSC1 from "../../UI Library/osc1/OSC1";
 import Filter from "../../UI Library/filter/Filter";
@@ -41,10 +42,7 @@ const DragArea = () => {
       className='container-dragArea'
       ref={constraintsRef}
     >
-
-      {components.map((item) => item)}
-
-
+      {components.map((item) => <div key={uuidv4()}>{item}</div>)}
     </div >
   );
 }

@@ -12,7 +12,7 @@ const UserInputs = () => {
   const storeData = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const { selectorUser, selectorUser: { selectOne, selectTwo } } = storeData;
+  const { selectorUser: { selectOne, selectTwo } } = storeData;
 
   function handleChange(e) {
     const target = e.target;
@@ -20,25 +20,24 @@ const UserInputs = () => {
     dispatch(getInput({ [name]: target.value }));
   };
 
+  // useEffect(() => {
 
-  useEffect(() => {
+  //   if (selectOne === 'OSC1') {
+  //     dispatch(pushComponent(<OSC1 />));
+  //     dispatch(getInput({ selectOne: "Select a source" }));
+  //   }
+  //   if (selectTwo === 'Filter') {
+  //     dispatch(pushComponent(<Filter />));
+  //     dispatch(getInput({ selectTwo: "Select module" }));
+  //   }
 
-    if (selectOne === 'OSC1') {
-      dispatch(pushComponent(<OSC1 />));
-      dispatch(getInput({ selectOne: "Select a source" }));
-    }
-    if (selectTwo === 'Filter') {
-      dispatch(pushComponent(<Filter />));
-      dispatch(getInput({ selectTwo: "Select module" }));
-    }
+  //   if (selectTwo === 'Gain') {
+  //     dispatch(pushComponent(<Gain />));
+  //     dispatch(getInput({ selectTwo: "Select module" }));
+  //   }
 
-    if (selectTwo === 'Gain') {
-      dispatch(pushComponent(<Gain />));
-      dispatch(getInput({ selectTwo: "Select module" }));
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectorUser])
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [selectorUser])
 
   return (
     <div className='container-utilities'>
@@ -60,7 +59,6 @@ const UserInputs = () => {
         <option value="Filter">Filter</option>
         <option value="Gain">Gain</option>
       </select>
-
     </div>
   );
 }

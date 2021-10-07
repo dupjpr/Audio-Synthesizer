@@ -1,9 +1,17 @@
-const Gain = () => {
-  return ( 
-    <div>
+import { motion } from "framer-motion"
+import './gain.style.scss';
+
+const Gain = ({ contraints }) => {
+  return (
+    <motion.div
+      drag
+      className='container-gain'
+      dragConstraints={contraints}
+      dragElastic={false}
+    >
       The gain
-    </div>
-   );
+    </motion.div>
+  );
 }
- 
+
 export default Gain;

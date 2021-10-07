@@ -1,0 +1,11 @@
+div.container-dragArea {
+  width: 80%;
+  height: 75vh;
+  margin: auto;
+  background-color: darkgreen;
+  div.container-dragArea-Element {
+    width: 200px;
+    height: 200px;
+    background-color: cornflowerblue;
+  }
+}

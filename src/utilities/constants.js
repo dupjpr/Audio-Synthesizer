@@ -1,10 +1,14 @@
 const LOADING = 'LOADING';
 const GET_PROFILE = 'GET_PROFILE';
 const ERROR = 'ERROR';
+const USER_INPUT = 'USER_INPUT';
+const AUDIO_NODE = 'AUDIO_NODE';
 
 export { 
   LOADING, 
   GET_PROFILE, 
-  ERROR
+  ERROR,
+  USER_INPUT,
+  AUDIO_NODE
  };
  

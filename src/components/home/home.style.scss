@@ -1,8 +1,12 @@
-.sectionHome-container {
+.container-sectionHome {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: aquamarine;
+  height: 100vh;
+  h1.container-sectionHome-title {
+    width: 100%;
+    height: 10vh;
+  }
 }

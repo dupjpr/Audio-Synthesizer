@@ -1,7 +1,8 @@
 import {
   LOADING,
-  GET_PROFILE,
-  ERROR
+  USER_INPUT,
+  AUDIO_NODE
+  
 } from '../../utilities/constants';
 
 const rootReducer = (state, action) => {
@@ -12,16 +13,17 @@ const rootReducer = (state, action) => {
         ...state,
         loading: action.payload
       }
-    case GET_PROFILE:
+    case USER_INPUT:
       return {
         ...state,
-        data: action.payload
+        selectorUser: {...state.selectorUser, ...action.payload}
       }
-    case ERROR:
+    case AUDIO_NODE:
       return {
         ...state,
-        error: action.payload
+        components: [...state.components, action.payload]
       }
+    
     default:
       return state
   }

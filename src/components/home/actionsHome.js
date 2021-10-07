@@ -1,39 +1,33 @@
 import {
-  LOADING,
-  GET_PROFILE,
-  ERROR
-} from '../../utilities/constants';
-import { _http } from "../../utilities/httpRequest";
+  USER_INPUT,
+  AUDIO_NODE
 
-const demoUrl = 'https://pokeapi.co/api/v2/ability';
+} from '../../utilities/constants';
 
 const actions = {
-  loading: (boolean = false) => ({
-    type: LOADING,
-    payload: boolean
+  inputUser: (value) => ({
+    type: USER_INPUT,
+    payload: value
   }),
-  getData: (data) => ({
-    type: GET_PROFILE,
-    payload: data
+  selectNode: (value) => ({
+    type: AUDIO_NODE,
+    payload: value
   }),
-  error: (data) => ({
-    type: ERROR,
-    payload: data
-  })
 }
 
-const { loading, getData, error } = actions;
+const { inputUser, selectNode } = actions;
 
-const getDataAction = () => {
+const getInput = (value) => {
   return dispatch => {
-    dispatch(loading(true));
-    _http.GET(demoUrl)
-      .then((res) => {
-        dispatch(getData(res))
-        dispatch(loading(false));
-      })
-      .catch((e) => dispatch(error(e)));
+    dispatch(inputUser(value));
   }
-}
+};
 
-export { getDataAction };
+const pushComponent = (component) => {
+  return dispatch => {
+    dispatch(selectNode(component));
+  }
+};
+
+
+export { getInput, pushComponent };

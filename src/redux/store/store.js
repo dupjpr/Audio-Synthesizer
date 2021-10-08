@@ -6,7 +6,8 @@ const initialState = {
   loading: false,
   audioContext: new AudioContext(),
   selectorUser: { selectOne: "Select a source", selectTwo: 'Select module' },
-  components: []
+  components: [],
+  infoSelectsInput: { selectOne:['OSC1'], selectTwo:['Filter', 'Gain'] }
 }
 
 const store = createStore(rootReducer, initialState, applyMiddleware(thunk));

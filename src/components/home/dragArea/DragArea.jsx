@@ -15,34 +15,50 @@ const DragArea = () => {
   const dispatch = useDispatch();
   const constraintsRef = useRef(null)
 
-  const { components, selectorUser, selectorUser: { selectOne, selectTwo } } = storeData;
+  const { components, selectorUser: { selectOne, selectTwo } } = storeData;
+
+  function componentConstructor(audioNode, input) {
+    dispatch(pushComponent(<div
+      key={audioNode.props.id}
+    >
+      {audioNode}
+    </div>));
+    dispatch(getInput({ selectOne: input }));
+  }
 
   useEffect(() => {
 
     if (selectOne === 'OSC1') {
-      dispatch(pushComponent(<OSC1 contraints={constraintsRef} />));
-      dispatch(getInput({ selectOne: "Select a source" }));
+      componentConstructor(
+        <OSC1 contraints={constraintsRef} id={uuidv4()} />,
+        "Select a source")
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectOne])
+
+  useEffect(() => {
+
     if (selectTwo === 'Filter') {
-      dispatch(pushComponent(<Filter contraints={constraintsRef} />));
-      dispatch(getInput({ selectTwo: "Select module" }));
+      componentConstructor(
+        <Filter contraints={constraintsRef} id={uuidv4()} />,
+        'Select module')
     }
 
     if (selectTwo === 'Gain') {
-      dispatch(pushComponent(<Gain contraints={constraintsRef} />));
-      dispatch(getInput({ selectTwo: "Select module" }));
+      componentConstructor(
+        <Gain contraints={constraintsRef} id={uuidv4()} />,
+        'Select module')
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectorUser])
-
+  }, [selectTwo])
 
   return (
     < div
       className='container-dragArea'
       ref={constraintsRef}
     >
-      {components.map((item) => <div key={uuidv4()}>{item}</div>)}
+      {components.map((item) => item)}
     </div >
   );
 }

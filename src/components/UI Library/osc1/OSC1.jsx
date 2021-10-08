@@ -1,10 +1,10 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import CloseButton from "../closeButton/CloseButton";
 import { v4 as uuidv4 } from 'uuid';
 
 import './osc1.style.scss';
 
-const OSC1 = ({ contraints }) => {
+const OSC1 = ({ contraints, id }) => {
   return (
     <motion.div
       drag
@@ -13,7 +13,7 @@ const OSC1 = ({ contraints }) => {
       dragElastic={false}
       key={uuidv4()}
     >
-      <CloseButton/>
+      <CloseButton id={id}/>
       this is the osc 1
     </motion.div>
   );

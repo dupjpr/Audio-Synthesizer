@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import './filter.style.scss';
 
-const Filter = ({ contraints }) => {
+const Filter = ({ contraints, id }) => {
 
   return (
     <motion.div
@@ -14,7 +14,7 @@ const Filter = ({ contraints }) => {
       dragElastic={false}
       key={uuidv4()}
     >
-      <CloseButton/>
+      <CloseButton id={id}/>
       Pakman filter
     </motion.div>
   );
